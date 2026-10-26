@@ -1,44 +1,32 @@
-# Growing Minds — Child Development Study Hub
+# Growing Minds — Child Development
 
-A buildless study companion based on eight supplied Child Development slide decks.
+Complete website for eight Child Development lectures. `index.html` is in the repository root. No build tools, dependencies or API keys are required.
 
-- 66 curated topics with examples, lecture timelines and 66 recall prompts.
-- 80 single-best-answer MCQs, explanations, shuffled choices, pagination and missed-answer review.
-- Searchable extracted text for 404 original slide sections and available embedded pictures.
-- Browser-local bookmarks, study progress and answer history; responsive layout and dark theme.
-- Correction notes distinguish selected outdated or misleading slide claims from curated study material.
+## Update your GitHub repository
 
-## Run
-Serve `dist/` with a static HTTP server. No package installation or build step is required.
-Run `python build_content.py` from this directory to regenerate `dist/data.json` from the stored extraction and authored content. Check JavaScript with `node --check dist/app.js`.
+1. Extract this ZIP.
+2. Copy the CONTENTS of `Child_Development_Full_Repo` into your existing `child-development` repository folder. Replace matching files. Keep your existing `.git` folder.
+3. Verify that index.html, style.css, app.js, data.json and assets/ are directly in the repository root, not inside a nested folder.
+4. Commit and push with GitHub Desktop.
+5. Under Settings → Pages, choose Deploy from a branch, select main and / (root), and save. If your default branch differs, select that branch.
+6. Wait for deployment, then refresh using Ctrl + F5.
+
+No GitHub Actions workflow is required. The previous dist/ directory is unused with this layout.
+
+## Local preview
+
+Run `python -m http.server 8000` here and open http://localhost:8000 . An HTTP server is required because the site uses fetch to load JSON.
+
+## Contents
+
+Eight lectures; 66 topics with examples and timelines; 80 MCQs with explanations; 66 recall prompts; 404 source slide sections with available embedded pictures; assignments and supporting resources. Includes search, bookmarks, browser-local progress, missed-answer review, shuffled options, 10/20/50/100 question pagination, responsive layout and dark mode.
+
+## Maintenance
+
+Edit build_content.py and run `python build_content.py` to regenerate data.json. Original extracted text is in source-material/slides.json. Check JavaScript using `node --check app.js`.
 
 ## Source fidelity
-Original text retains source wording; notes are adapted educational explanations. Available embedded pictures from seven decks are included. Native shape diagrams and original page layouts are not reproduced. Lecture 6 was recovered from a legacy PowerPoint binary: its text is included but image layout could not be recovered. Blank/title/reference pages remain in the original order. Source lecture files are credited in the website footer. Supporting primary resources are linked in the Resources view.
 
-Milestones are approximate guides and this companion does not provide individual diagnoses. Historical statistics remain in the original source sections with context warnings.
+The Source slides view preserves original wording, including dated estimates and spelling errors. Curated notes clarify selected misleading claims. Original attribution appears in the footer. Available pictures from seven decks are included. Native shape diagrams and original slide layouts are not reproduced. Lecture 6 text was recovered from a legacy file, but its picture layout was unavailable. Original PowerPoint binaries are not included.
 
-## Put this repository on GitHub
-
-1. Extract the ZIP and create an empty GitHub repository.
-2. In GitHub Desktop, choose **File → Add local repository**, select the extracted folder, and choose **Create a repository here** if prompted. Commit the files and choose **Publish repository**. Keep it private unless you intend to share the supplied lecture material.
-3. For GitHub Pages, open repository **Settings → Pages → Build and deployment → Source → GitHub Actions**. The included workflow publishes `dist/` when you push to `main`; you can also run it manually from Actions. Pages availability for private repositories depends on your GitHub plan. A Pages site may expose lecture material publicly; check the intended audience before enabling it.
-
-### Command-line alternative
-
-```bash
-git init -b main
-git add .
-git commit -m "Initial child development study website"
-```
-
-Then connect the repository to your own GitHub remote and push `main`.
-
-### Preview locally
-
-```bash
-python -m http.server 8000 --directory dist
-```
-
-Open http://localhost:8000 . Avoid opening index.html directly because the site loads its JSON with fetch.
-
-No API keys, passwords, original Sites project configuration or Git remote credentials are included. This package contains source files rather than another account's Git history. Lecture text and embedded illustrations retain their source attribution; no rights to third-party course material are granted by this package.
+Milestones are approximate guides, not individual diagnoses. Source material retains its original attribution; this package grants no rights to third-party course material. No credentials, Git history or account-specific hosting configuration is included.

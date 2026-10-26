@@ -292,5 +292,5 @@ for l in lessons:
  for q in l['questions']:assert len(set(q['options']))==4 and 0<=q['answer']<4
 assert len(lessons)==8 and sum(len(l['questions']) for l in lessons)==80
 out=dict(title='Growing Minds',lessons=lessons,references=[dict(title=a,url=b) for a,b in refs],assignments=[dict(lecture=3,title='Technoference and child development',text='Discuss technology interrupting adult–child interaction. The supplied assignment asks for 1,500–2,000 words, references and a PDF soft submission.'),dict(lecture=4,title='Physical growth as a proxy for development',text='Critically discuss physical growth as a proxy for development in low- and middle-income countries. The supplied assignment asks for 1,500–2,000 words, references and soft submission.')])
-Path('dist/data.json').write_text(json.dumps(out,ensure_ascii=False))
+Path('data.json').write_text(json.dumps(out,ensure_ascii=False))
 print(json.dumps(dict(lectures=len(lessons),topics=sum(len(l['topics']) for l in lessons),slides=sum(len(l['slides']) for l in lessons),questions=sum(len(l['questions']) for l in lessons))))
